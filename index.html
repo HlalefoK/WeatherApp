@@ -12,40 +12,67 @@
 </head>
 <body>
     <div class="container">
-        <div class="weather-app-wrapper">
+      <div class="weather-app-wrapper">
         <div class="weather-app">
-        <h1>
-            Johannesburg
-        </h1>
-        <ul>
-            <li>
-                Monday 12:04
-            </li>
-            <li>
-                Clear
-            </li>
-        </ul>
-        <div class="row">
+          <form id="search-form" class="mb-3">
+            <div class="row">
+              <div class="col-6">
+                <input
+                  type="search"
+                  placeholder="Type a city.."
+                  class="form-control"
+                  id="city-input"
+                  autocomplete="off"
+                />
+              </div>
+               <div class="col-3">
+              <input
+                type="submit"
+                value="Search"
+                class="form-control btn btn-primary shadow-sm"
+              />
+            </div>
+            <div class="col-3">
+              <button
+                type="button"
+                class="form-control btn btn-primary shadow-sm"
+                id="location-button" 
+              >
+                Location
+              </button>
+            </div>
+            </div>
+          </form>
+          <div class="overview">
+            <h1 id="city"></h1>
+            <ul>
+              <li>Last updated: <span id="date"></span></li>
+              <li id="description"></li>
+            </ul>
+          </div>
+          <div class="row">
             <div class="col-6">
-                <img src="" alt="clear">
-                12C | F
+              <div class="clearfix weather-temperature d-flex align-items-center">
+                <img src="" alt="Clear" id="icon" class="float-left" />
+                <div class="float-left">
+                  <strong id="temperature"></strong
+                  ><span class="units"
+                    ><a href="#" id="celsius-link" class="active">°C</a> |
+                    <a href="#" id="fahrenheit-link">°F</a></span
+                  >
+                </div>
+              </div>
             </div>
-            <div class="col-md-6">
-                <ul>
-                    <li>
-                        Precipitation: 0%
-                    </li>
-                    <li>
-                        Humidty: 73%
-                    </li>
-                    <li>
-                        Wind: 2 km/h
-                    </li>
-                </ul>
+            <div class="col-6" id="temperature-description" >
+              <ul>
+                <li>Humidity: <span id="humidity"></span>%</li>
+                <li>Wind: <span id="wind"></span> km/h</li>
+              </ul>
             </div>
-            </div>
-            
+          </div>
+          <div class="weather-forecast" id="forecast"></div>
         </div>
+
         <small>
             <a href="https://github.com/HlalefoK/WeatherApp">Open-source</a> by Hlalefo Khalata
         </small>
