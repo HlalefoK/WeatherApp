@@ -43,7 +43,7 @@ function displayForecast(response){
 
     daysForecast.forEach(function (forecastDay, index) {
 
-        if (index < 6){
+        if (index < 5){
 
             forecastHTML = forecastHTML +  `
             
@@ -124,40 +124,11 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-function getCurrentPosition() {
-  navigator.geolocation.getCurrentPosition(showPosition);
-}
-
-let locationButton = document.querySelector("#location-button");
-locationButton.addEventListener("click", getCurrentPosition);
+// function getCurrentPosition() {
+//   navigator.geolocation.getCurrentPosition(showPosition);
+// }
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
-}
-
-function displayCelsiusTemperature(event) {
-  event.preventDefault();
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
-let celsiusTemperature = null;
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Johannesburg");
