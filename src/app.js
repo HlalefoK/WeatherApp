@@ -109,6 +109,31 @@ function displayTemperature(response) {
 
   getForecast(response.data.coord);
 
+  let weatherDescription = response.data.weather[0].description;
+
+    // Set a class on the weather-app-wrapper based on the weather description
+    let appContainer = document.querySelector('.weather-app-wrapper');
+
+    // Remove any existing weather classes
+    appContainer.classList.remove(
+        'weather-description-sunny',
+        'weather-description-cloudy',
+        'weather-description-rainy',
+        'weather-description-storm',
+        'weather-description-clear-sky'
+    );
+
+    // Add the appropriate weather class based on the description
+    if (weatherDescription.includes('clear')) {
+        appContainer.classList.add('weather-description-sunny');
+    } else if (weatherDescription.includes('cloud')) {
+        appContainer.classList.add('weather-description-cloudy');
+    } else if (weatherDescription.includes('rain')) {
+        appContainer.classList.add('weather-description-rainy');
+    } else if (weatherDescription.includes('storm')) {
+        appContainer.classList.add('weather-description-storm');
+    }
+
 
 }
 
